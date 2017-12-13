@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="addUserModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -24,13 +24,14 @@
 							      <input type="text" required="required" v-model="user.name">
 							      <label class="control-label" for="input">Name</label><i class="bar"></i>
 							    </div>
+
 					      </div> <!-- .col-md-12 -->
 					    </div>	<!-- .row -->
 					  </div>	<!-- .container-fluid -->
 					</div> <!-- .modal-body -->
 				  <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary" @click="save()">Save</button>
+		        <button type="button" class="btn btn-primary" data-dismiss="modal" @click="save()">Save</button>
 		      </div>	<!-- .modal-footer -->
 		    </div>	<!-- .modal-content -->
 		  </div>	<!-- .modal-dialog -->
@@ -40,18 +41,37 @@
 </template>
 
 <script>
+	import PictureInput from 'vue-picture-input'
 	export default {
+		components: {
+			PictureInput
+		},
 		data() {
 			return {
 				deparments: ['Web', 'Apps', 'OMT'],
 				user: {}
 			}
 		},
+		mounted() {
+			$('#addUserModal').on('shown.bs.modal', function () {
+				var $element = $('#addUserModal').append("<picture-input ref='pictureInput'@change='onChange'width='600'height='600'margin='16'accept='image/jpeg,image/png'size='10':removable='true':customStrings='{upload: '<h1>Bummer!</h1>', drag: 'Drag a 😺 GIF or GTFO'}'> </picture-input>")
+				this._compile($element.get(0));
+			})
+		},
 		methods: {
 			save() {
-				console.log(this.user)
+				this.user.image = "uploads/1.jpg"
+				this.user.status = ""
+				this.$store.commit('addUser', this.user)
 				this.user = {}
-
+			},
+			onChange () {
+				console.log('New picture selected!')
+				if (this.$refs.pictureInput.image) {
+					console.log('Picture loaded.')
+				} else {
+					console.log('FileReader API not supported: use the <form>, Luke!')
+				}
 			}
 		}
 	}

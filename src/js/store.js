@@ -19,6 +19,10 @@ export default new Vuex.Store({
 			let index = state.contestants.indexOf(contestant)
 			state.contestants[index].status = 'winner'
 			this.dispatch('saveToFile')
+		},
+		addUser(state, user) {
+			state.contestants.push(user)
+			this.dispatch('saveToFile')
 		}
 	},
 	actions: {

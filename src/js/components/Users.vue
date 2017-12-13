@@ -1,6 +1,19 @@
 <template>
 	<div class="container h-100 wrapper">
-
+		<!-- <picture-input
+			ref="pictureInput"
+			@change="onChange"
+			width="600"
+			height="600"
+			margin="16"
+			accept="image/jpeg,image/png"
+			size="10"
+			:removable="true"
+			:customStrings="{
+				upload: '<h1>Bummer!</h1>',
+				drag: 'Drag a 😺 Photo'
+			}">
+		</picture-input> -->
     <div class="row h-100">
       	<div class="col-lg-12 my-auto">
           <div class="header-content mx-auto">
@@ -46,8 +59,13 @@
 <script>
 	import ModalRemoveUser from './Modal/ModalRemoveUser'
 	import ModalAddUser from './Modal/ModalAddUser'
+	import PictureInput from 'vue-picture-input'
 	export default {
-		components: { ModalRemoveUser, ModalAddUser },
+		components: {
+			ModalRemoveUser,
+			ModalAddUser,
+			PictureInput
+		},
 		data() {
 			return {
 				department: '',
@@ -75,6 +93,14 @@
 		methods: {
 			pickUser(contestant) {
 				this.contestant = contestant
+			},
+			onChange () {
+				console.log('New picture selected!')
+				if (this.$refs.pictureInput.image) {
+					console.log('Picture loaded.')
+				} else {
+					console.log('FileReader API not supported: use the <form>, Luke!')
+				}
 			}
 		}
 	}
