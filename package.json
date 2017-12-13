@@ -24,7 +24,7 @@
     "animate.css": "^3.5.2",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
-    "cross-env": "^5.0.5",
+    "cross-env": "^5.1.1",
     "electron": "~1.7.8",
     "laravel-mix": "^1.4.5",
     "node-sass": "^4.5.3",
@@ -36,16 +36,16 @@
     "vuex": "^3.0.0"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-beta",
+    "bootstrap": "^4.0.0-beta.2",
     "electron-connect": "^0.6.2",
     "electron-json-storage": "^3.2.0",
     "fs": "0.0.1-security",
     "jquery": "^3.2.1",
     "jsonfile": "^4.0.0",
-    "vue": "^2.4.4",
+    "vue": "^2.5.5",
     "vue-masonry": "^0.10.12",
     "vue-material": "^0.7.5",
-    "vue-router": "^2.7.0",
-    "vuetify": "^0.16.1"
+    "vue-router": "^2.8.1",
+    "vuetify": "^0.16.9"
   }
 }

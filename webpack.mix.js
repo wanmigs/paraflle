@@ -1,6 +1,6 @@
 let mix = require('laravel-mix');
-// let electron = require("electron-connect").server.create();
-// electron.start();
+let electron = require("electron-connect").server.create();
+electron.start();
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

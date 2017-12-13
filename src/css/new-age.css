@@ -45,10 +45,6 @@ p {
   line-height: 1.5;
   margin-bottom: 20px; }
 
-section {
-  padding: 100px 0; }
-  section h2 {
-    font-size: 50px; }
 .wrapper {
   padding: 50px 0;}
   .grid-item {
@@ -690,20 +686,7 @@ fieldset {
   width: 100%;
 }
 
-.button {
-  position: relative;
-  background: currentColor;
-  border: 1px solid currentColor;
-  font-size: 1.1rem;
-  color: #4f93ce;
-  margin: 3rem 0;
-  padding: 0.75rem 3rem;
-  cursor: pointer;
-  -webkit-transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
-  transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
-  overflow: hidden;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
+
 .button span {
   color: #fff;
   position: relative;
@@ -723,5 +706,5 @@ fieldset {
   z-index: 0;
   opacity: 1;
   -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
 }
