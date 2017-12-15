@@ -323,10 +323,6 @@ footer {
 
 .masonry {
     padding: 40px 0 ;
-    column-count: 3;
-    -moz-column-gap: 2em;
-    -webkit-column-gap: 2em;
-    column-gap: 2em;
     text-align: center;
     width: 90%;
     margin: 0 auto;}
@@ -335,6 +331,10 @@ footer {
       break-inside: avoid;
       margin: 0 0 2em;
       width: 100%;}
+  .item.card {
+    display: inline-block;
+    margin: 8px;
+  }
     .card {
       transition: transform .5s;}
       .btn-remove { opacity: 0; }
@@ -707,4 +707,43 @@ fieldset {
   opacity: 1;
   -webkit-transform: translate(-50%, -50%) scale(0);
   transform: translate(-50%, -50%) scale(0);
+}
+.toast-container {
+	display:none;
+	position:absolute;
+	z-index:10000;
+	bottom: 10%;
+	right:2%;
+	max-width:86%;
+}
+
+.toast {
+	border-radius:2px;
+	top:35px;
+	width:auto;
+	margin-top:10px;
+	position:relative;
+	max-width:100%;
+	height:auto;
+	min-height:48px;
+	line-height:1.5em;
+	word-break:break-all;
+	background-color:#fff;
+	padding:10px 25px;
+	font-size:1.1rem;
+	font-weight:300;
+	color:#323232;
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-align:center;
+	-webkit-align-items:center;
+	-ms-flex-align:center;
+	align-items:center;
+	-webkit-box-pack:justify;
+	-webkit-justify-content:space-between;
+	-ms-flex-pack:justify;
+	justify-content:space-between;
+	cursor:default
 }

@@ -7,8 +7,10 @@
           </div>	<!-- .header-content.mx-auto -->
 			</div>	<!-- .col-lg-12.my-auto -->
 		</div>	<!-- .row .h-100 -->
-		<div class="alert alert-primary" v-if="!getWinners.length">
-			No Current winners
+		<div id="winner-toast" class="toast-container" v-if="!getWinners.length">
+			<div class="toast" style="top: 0px; opacity: 1;">
+				<span>No current winners</span>
+			</div>
 		</div>
 
 		<div class="card-wrapper masonry">
@@ -64,5 +66,12 @@
 	width: 50px;
 	position: absolute;
 	left: 42%;
+}
+#winner-toast {
+    display: block;
+    left: 0;
+	position: relative;
+	max-width: 100%;
+	z-index: 1;
 }
 </style>
