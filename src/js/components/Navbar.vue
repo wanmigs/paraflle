@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <router-link to="/" class="navbar-brand js-scroll-trigger">Winners</router-link>
+              <router-link to="/winners" class="navbar-brand js-scroll-trigger">Winners</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/users" class="navbar-brand js-scroll-trigger">Manage Users</router-link>

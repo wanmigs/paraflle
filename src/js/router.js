@@ -4,10 +4,14 @@ let routes = [
 	{
 		path: '/',
 		component: require('./components/Home.vue')
-	}, 
+	},
 	{
 		path: '/users',
 		component: require('./components/Users.vue')
+	},
+	{
+		path: '/winners',
+		component: require('./components/Winners.vue')
 	}
 ]
 

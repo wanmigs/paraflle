@@ -1,4 +1,4 @@
-import Vue from 'vue'
+window.Vue = require('vue')
 import VueRouter from 'vue-router'
 import {VueMasonryPlugin} from 'vue-masonry';
 import App from './components/App.vue'

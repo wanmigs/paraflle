@@ -8,7 +8,7 @@
               <div class="device">
                 <div class="screen">
                   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img  :src="pickUser.image || 'src/img/avatar-2.jpg'" class="h-100 mx-auto d-block" :class="imgClass">
+                  <img  :src="pickUser.image || defaultImage" class="h-100 mx-auto d-block" :class="imgClass">
                 </div>
                 <div class="button" @click="swipe()">
                   <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -16,7 +16,8 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> <!-- col-lg-12 my-auto -->
+
       </div>
     </div>
   </header>
@@ -35,6 +36,11 @@
 				return this.$store.state.contestants.filter((user)=> {
 					return user.status == ''
 				})
+			},
+			defaultImage() {
+				if (this.contestants.length == 1)
+					return this.contestants[0].image
+				return 'src/img/avatar-2.jpg'
 			}
 		},
 		methods: {
@@ -45,7 +51,12 @@
 	      	this.imgClass = this.imgClass == 'swipe-in' ? 'swipe-out' : 'swipe-in'
 	      	if (--iteration) this.shuffle(iteration)      //  decrement i and call myLoop again if i > 0
 
-	      	if (!iteration) this.$store.commit('updateWinner', this.pickUser)
+	      	if (!iteration) {
+	      		this.$store.commit('updateWinner', this.pickUser)
+	      		setTimeout(() => {
+	      			jQuery('.device').animateCss('wobble')
+	      		},500)
+	      	}
 			   }, 200)
 			},
 			swipe() {

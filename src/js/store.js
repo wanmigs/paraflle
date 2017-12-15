@@ -15,12 +15,29 @@ export default new Vuex.Store({
 			state.contestants.splice(index, 1)
 			this.dispatch('saveToFile')
 		},
+		resetUser(state, contestant) {
+			if (typeof contestant.length == 'undefined') {
+				let index = state.contestants.indexOf(contestant)
+				state.contestants[index].status = ''
+				this.dispatch('saveToFile')
+				return
+			}
+			contestant.forEach((user) => {
+				let index = state.contestants.indexOf(user)
+				state.contestants[index].status = ''
+			})
+			this.dispatch('saveToFile')
+		},
 		updateWinner(state, contestant) {
 			let index = state.contestants.indexOf(contestant)
 			state.contestants[index].status = 'winner'
 			this.dispatch('saveToFile')
 		},
 		addUser(state, user) {
+			if (user.file) {
+				saveImage(user.file)
+			}
+			delete user.file
 			state.contestants.push(user)
 			this.dispatch('saveToFile')
 		}

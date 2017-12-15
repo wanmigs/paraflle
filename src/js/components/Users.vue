@@ -1,19 +1,5 @@
 <template>
 	<div class="container h-100 wrapper">
-		<!-- <picture-input
-			ref="pictureInput"
-			@change="onChange"
-			width="600"
-			height="600"
-			margin="16"
-			accept="image/jpeg,image/png"
-			size="10"
-			:removable="true"
-			:customStrings="{
-				upload: '<h1>Bummer!</h1>',
-				drag: 'Drag a 😺 Photo'
-			}">
-		</picture-input> -->
     <div class="row h-100">
       	<div class="col-lg-12 my-auto">
           <div class="header-content mx-auto">
@@ -22,9 +8,7 @@
 			</div>	<!-- .col-lg-12.my-auto -->
 		</div>	<!-- .row .h-100 -->
 
-		<hr>
-
-		<ul class="nav nav-pills">
+		<ul class="nav nav-pills mt-4">
 		  <li class="nav-item">
 		    <a class="btn btn-outline btn-xl js-scroll-trigger mr-2" href="javascript:void(0)" @click="department = ''" :class="{ active :  department == ''}">All</a>
 		  </li>
@@ -46,7 +30,7 @@
 			  <div class="card-body">
 			    <h4 class="card-title text-left">{{ item.name }}</h4>
 			    <p class="card-text text-left text-capitalize">{{ item.department }}</p>
-			    <a href="javascript:void(0)" class="btn btn-danger btn-xl js-scroll-trigger mr-2 btn-remove" data-toggle="modal" data-target="#confirmation" @click="pickUser(item)">Remove</a>
+			    <a href="javascript:void(0)" class="btn btn-danger btn-xl js-scroll-trigger mr-2 btn-remove" data-toggle="modal" data-target="#confirmation" @click="contestant = item">Remove</a>
 			  </div>
 			</div>
 		</div>	<!-- .card-wrapper.masonry -->
@@ -59,12 +43,10 @@
 <script>
 	import ModalRemoveUser from './Modal/ModalRemoveUser'
 	import ModalAddUser from './Modal/ModalAddUser'
-	import PictureInput from 'vue-picture-input'
 	export default {
 		components: {
 			ModalRemoveUser,
-			ModalAddUser,
-			PictureInput
+			ModalAddUser
 		},
 		data() {
 			return {
@@ -89,19 +71,6 @@
 		    		jQuery('.item').animateCss('swing')
 		    	},100);
 		    },
-		},
-		methods: {
-			pickUser(contestant) {
-				this.contestant = contestant
-			},
-			onChange () {
-				console.log('New picture selected!')
-				if (this.$refs.pictureInput.image) {
-					console.log('Picture loaded.')
-				} else {
-					console.log('FileReader API not supported: use the <form>, Luke!')
-				}
-			}
 		}
 	}
 </script>

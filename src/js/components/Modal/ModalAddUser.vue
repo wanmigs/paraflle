@@ -24,6 +24,9 @@
 							      <input type="text" required="required" v-model="user.name">
 							      <label class="control-label" for="input">Name</label><i class="bar"></i>
 							    </div>
+							    <div id="upload">
+							    	<picture-input @change="onChange"></picture-input>
+							    </div>
 
 					      </div> <!-- .col-md-12 -->
 					    </div>	<!-- .row -->
@@ -41,7 +44,7 @@
 </template>
 
 <script>
-	import PictureInput from 'vue-picture-input'
+	import PictureInput from '../PictureInput'
 	export default {
 		components: {
 			PictureInput
@@ -54,25 +57,21 @@
 		},
 		mounted() {
 			$('#addUserModal').on('shown.bs.modal', function () {
-				var $element = $('#addUserModal').append("<picture-input ref='pictureInput'@change='onChange'width='600'height='600'margin='16'accept='image/jpeg,image/png'size='10':removable='true':customStrings='{upload: '<h1>Bummer!</h1>', drag: 'Drag a 😺 GIF or GTFO'}'> </picture-input>")
-				this._compile($element.get(0));
+
 			})
 		},
 		methods: {
 			save() {
-				this.user.image = "uploads/1.jpg"
+				this.user.image = `uploads/${this.picturePreview.name}` || "uploads/1.jpg"
+				this.user.file = this.picturePreview || ''
 				this.user.status = ""
 				this.$store.commit('addUser', this.user)
 				this.user = {}
 			},
-			onChange () {
-				console.log('New picture selected!')
-				if (this.$refs.pictureInput.image) {
-					console.log('Picture loaded.')
-				} else {
-					console.log('FileReader API not supported: use the <form>, Luke!')
-				}
+			onChange (image) {
+				this.picturePreview = image
 			}
 		}
 	}
 </script>
+

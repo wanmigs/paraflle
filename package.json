@@ -1,5 +1,5 @@
 {
-  "name": "electron-quick-start",
+  "name": "sync-raffle",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
@@ -42,7 +42,7 @@
     "fs": "0.0.1-security",
     "jquery": "^3.2.1",
     "jsonfile": "^4.0.0",
-    "vue": "^2.5.5",
+    "vue": "^2.5.10",
     "vue-loader": "^13.5.0",
     "vue-masonry": "^0.10.12",
     "vue-material": "^0.7.5",
