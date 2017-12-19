@@ -292,13 +292,13 @@ footer {
   padding: 15px 45px; }
 
 .swipe-in {
-  -webkit-animation: swipe-in 0.3s 1;
-  animation: swipe-in 0.3s 1;
+  -webkit-animation: swipe-in 0.5s 1;
+  animation: swipe-in 0.5s 1;
 }
 
 .swipe-out {
-  -webkit-animation: swipe-out 0.3s 1;
-  animation: swipe-out 0.3s 1;
+  -webkit-animation: swipe-out 0.8s 1;
+  animation: swipe-out 0.8s 1;
 }
 
 @-webkit-keyframes swipe-in {
@@ -315,7 +315,7 @@ footer {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-200%);
   }
 }
 
@@ -325,16 +325,14 @@ footer {
     padding: 40px 0 ;
     text-align: center;
     width: 90%;
+    column-count: 3;
+    column-gap: 1em;
     margin: 0 auto;}
   .item {
       background-color: #eee;
       break-inside: avoid;
       margin: 0 0 2em;
       width: 100%;}
-  .item.card {
-    display: inline-block;
-    margin: 8px;
-  }
     .card {
       transition: transform .5s;}
       .btn-remove { opacity: 0; }

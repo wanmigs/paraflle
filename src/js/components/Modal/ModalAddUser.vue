@@ -52,7 +52,8 @@
 		data() {
 			return {
 				deparments: ['Web', 'Apps', 'OMT'],
-				user: {}
+				user: {},
+				picturePreview: ''
 			}
 		},
 		mounted() {
@@ -62,11 +63,13 @@
 		},
 		methods: {
 			save() {
-				this.user.image = `uploads/${this.picturePreview.name}` || "uploads/1.jpg"
+				this.user.image = this.picturePreview == '' ? '' : `uploads/${this.picturePreview.name}`
 				this.user.file = this.picturePreview || ''
 				this.user.status = ""
 				this.$store.commit('addUser', this.user)
 				this.user = {}
+				this.picturePreview = ''
+				window.location.reload()
 			},
 			onChange (image) {
 				this.picturePreview = image

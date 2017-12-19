@@ -24,9 +24,9 @@
 		</ul>	<!-- .nav.nav-pills -->
 
 		<div class="card-wrapper masonry">
-      <div class="card item" style="width: 20rem;"  v-for="(item, index) in getByDepartment">
+      <div class="card item" style="width: 20rem;"  v-for="(item, index) in getByDepartment" :key="index">
       	<img src="assets/img/pin.png" class="pin">
-			  <img class="card-img-top" :src="item.image" >
+			  <img class="card-img-top" :src="item.image || 'src/img/default.png'" >
 			  <div class="card-body">
 			    <h4 class="card-title text-left">{{ item.name }}</h4>
 			    <p class="card-text text-left text-capitalize">{{ item.department }}</p>

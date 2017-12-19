@@ -8,11 +8,11 @@
             <div class="device-mockup iphone6_plus landscape white">
               <div class="device">
                 <div class="screen">
-									<div class="toast-container">
-										<div class="toast" style="top: 0px; opacity: 1;">
-											<span>{{ pickUser.name }}</span>
-										</div>
-									</div>
+					<div class="toast-container">
+						<div class="toast" style="top: 0px; opacity: 1;">
+							<span>{{ pickUser.name }}</span>
+						</div>
+					</div>
                   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
                   <img  :src="pickUser.image || defaultImage" class="h-100 mx-auto d-block" :class="imgClass">
                 </div>
@@ -23,7 +23,6 @@
             </div>
           </div>
         </div> <!-- col-lg-12 my-auto -->
-
       </div>
     </div>
   </header>
@@ -62,9 +61,9 @@
 	      		setTimeout(() => {
 	      			jQuery('.device').animateCss('wobble')
 							jQuery('.toast-container').show().animateCss('fadeInUp')
-	      		},500)
+	      		},700)
 	      	}
-			   }, 200)
+			   }, 400)
 			},
 			swipe() {
 				if (this.contestants.length === 1) {
@@ -72,7 +71,7 @@
 					return
 				}
 				jQuery('.toast-container').hide()
-				this.shuffle(20)
+				this.shuffle(40)
 			}
 		}
 	}

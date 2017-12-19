@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import {VueMasonryPlugin} from 'vue-masonry';
 import App from './components/App.vue'
 import router from './router.js'
-import store from './store';
+import store from './store'
 import '../../node_modules/animate.css/animate.css'
 
 window.$ = require("jquery")
