@@ -29,11 +29,16 @@
 </template>
 
 <script>
+	import Vue from 'vue'
+  import VueConfetti from 'vue-confetti'
+
+  Vue.use(VueConfetti)
 	export default {
 		data() {
 			return {
 				imgClass : 'swipe-in',
-				pickUser: {}
+				pickUser: {},
+				iteration: 40
 			}
 		},
 		computed: {
@@ -50,6 +55,19 @@
 		},
 		methods: {
 			shuffle(iteration) {
+				let percentage = (this.iteration - iteration + 1) / this.iteration
+				let timeout
+
+				if (percentage <= 0.5 && percentage > 0.25) {
+					timeout = 250
+				} else if (percentage <= 0.75 && percentage > 0.5) {
+					timeout = 300
+				} else if (percentage <= 1 && percentage > 0.75) {
+					timeout = 400
+				} else {
+					timeout = 200
+				}
+
 				setTimeout(() => {
 					let user = Math.floor(Math.random()*this.contestants.length)
 					this.pickUser = this.contestants[user]
@@ -61,17 +79,25 @@
 	      		setTimeout(() => {
 	      			jQuery('.device').animateCss('wobble')
 							jQuery('.toast-container').show().animateCss('fadeInUp')
+							this.$confetti.start({
+								shape: 'rect',
+								colors: ['#F9F9F9', '#EDB731', '#ba0000']
+							})
+							setTimeout(() => {
+								this.$confetti.stop()
+							}, 5000);
 	      		},700)
 	      	}
-			   }, 400)
+			   }, timeout)
 			},
+
 			swipe() {
 				if (this.contestants.length === 1) {
 					alert('No more contestants')
 					return
 				}
 				jQuery('.toast-container').hide()
-				this.shuffle(40)
+				this.shuffle(this.iteration)
 			}
 		}
 	}

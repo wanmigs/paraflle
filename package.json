@@ -43,6 +43,7 @@
     "jquery": "^3.2.1",
     "jsonfile": "^4.0.0",
     "vue": "^2.5.10",
+    "vue-confetti": "^0.3.2",
     "vue-loader": "^13.5.0",
     "vue-masonry": "^0.10.12",
     "vue-material": "^0.7.5",
