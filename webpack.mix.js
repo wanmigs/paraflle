@@ -1,6 +1,5 @@
 let mix = require('laravel-mix');
-let electron = require("electron-connect").server.create();
-electron.start();
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -14,4 +13,7 @@ electron.start();
 
 mix.js('src/js/app.js', 'dist/js/')
    .setPublicPath('dist');
+
+let electron = require("electron-connect").server.create();
+electron.start();
 

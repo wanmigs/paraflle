@@ -38,7 +38,7 @@
 			return {
 				imgClass : 'swipe-in',
 				pickUser: {},
-				iteration: 40
+				iteration: 30
 			}
 		},
 		computed: {
